@@ -1,0 +1,53 @@
+###
+POST http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "mat": "123456",
+      "nom": "Juan",
+      "apeP": "Perez",
+      "apeM": "Gomez",
+      "calle": "Calle Principal",
+      "no": "123",
+      "col": "Centro",
+      "ciudad": "Ciudad de Ejemplo",
+      "cp": 12345,
+      "numTelCa": "555-1234",
+      "numTelAsp": "555-5678",
+      "numTelMaPa": "555-9012",
+      "mail": "juan.perez@example.com",
+      "nomBach": "Bachillerato XYZ",
+      "promBach": 9.5,
+      "espCur": "Ciencias",
+      "nomMa": "Maria",
+      "apePMa": "Lopez",
+      "apeMMa": "Gomez",
+      "nomPa": "Pedro",
+      "apePPa": "Perez",
+      "apeMPa": "Gomez",
+      "fechReg": "2023-01-01",
+      "carrCur": "Ingeniería Informática"
+}
+
+###
+GET http://localhost:9000/api/users HTTP/1.1
+
+###
+GET http://localhost:9000/api/users/63e931848911c46b06cfa3b0 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/users/63e82c46c71be2fb6466b260 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Nikola",
+    "age": "83",
+    "date": "09-02-2023",
+    "domicile": "Nose Xd",
+    "phoneNumber": "4181176903",
+    "chronologicalDisease": "Muerto xd",
+    "pathologicalDisease": "Muerto2 xd"
+}
+
+###
+DELETE http://localhost:9000/api/users/63e9157b744fdbdf93fe9f73 HTTP/1.1

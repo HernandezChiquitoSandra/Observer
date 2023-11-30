@@ -1,0 +1,44 @@
+    <div class="row">
+        <div class="card">
+            <div class="card-body text-center">
+              <div class="topnav">
+              <input type="text" name="buscador" placeholder="Buscar por nombre" (keyup)="filtrarLibros($event)">
+            </div>
+                <span class="titulo">LISTADO DE LIBROS</span>
+                <button *ngIf="authService.loggedIn() && esAdmin" routerLink="/añadir-libro" class="btn btn-success float-end">NUEVO</button>
+                <table *ngIf="librosFiltrados.length > 0 || listLibros.length > 0" class="table table-striped mt-3">
+                    <thead>
+                      <tr>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Editorial</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Género</th>
+                        <th scope="col">Sinopsis</th>
+                        <th scope="col">No. páginas</th>
+                        <th scope="col">Imágen</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let libro of librosFiltrados.length > 0 ? librosFiltrados : listLibros">
+                        <td> {{libro.titulo}} </td>
+                        <td> {{libro.editorial}} </td>
+                        <td> {{libro.fechpubl}} </td>
+                        <td> {{libro.gen}} </td>
+                        <td> {{libro.sinop}} </td>
+                        <td> {{libro.numpag}} </td>
+                        <td> 
+                            <img style="width: 100px; height: 100;" *ngIf="libro.foto" [src]="getSanitizedImageUrl(libro.foto, 'jpeg')" alt="Foto">
+                        </td>
+                          <i *ngIf="authService.loggedIn()" class="fa fa-heart fa-2x" (click)="agregarFavorito(libro._id, libro.titulo)" style="margin-right: 10px; cursor: pointer;"></i>
+                          <td>
+                            <button (click)="notificarCambio()">Notificar Cambio</button>
+                          </td>
+                        </tr>
+                    </tbody>
+                  </table>
+                <h5 style="text-align: start; margin-top: 10px;" *ngIf="listLibros.length == 0">No hay libros para mostrar</h5>
+            </div>
+        </div>
+    </div>

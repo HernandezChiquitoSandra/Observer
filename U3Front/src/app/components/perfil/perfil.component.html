@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="card">
+    <div class="card-body text-center">
+      <div class="topnav">
+        <div *ngIf="usuarioInfo">
+          <i class="fa fa-user-circle fa-5x" style="margin-bottom: 20px;"></i>
+          <h2>{{ usuarioInfo.nombre }}</h2>
+          <p><strong>Dirección:</strong> {{ usuarioInfo.direccion }}</p>
+          <p><strong>Correo:</strong> {{ usuarioInfo.correo }}</p>
+        </div>
+      </div>
+      <table *ngIf="usuarioFavs && usuarioFavs.length" class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th scope="col">Libros favoritos</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let fav of usuarioFavs">
+            <td> {{fav.libroTitl}} </td>
+              <i *ngIf="authService.loggedIn()" (click)="eliminarFavorito(fav.libroId)" class="fa fa-trash fa-2x" style="margin-right: 10px; cursor: pointer;"></i>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

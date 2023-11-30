@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card">
+            <div class="card-header">
+                SignUp
+            </div>
+            <div class="card-body">
+                <form [formGroup]="usuarioForm" (ngSubmit)="signUp()">
+                    <div class="form-group">
+                        <input type="text" formControlName="nombre" id="form-control" placeholder="Nombre" required autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="direccion" id="form-control" placeholder="Dirección" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="correo" id="form-control" placeholder="Correo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="passwd" id="form-control" placeholder="Contraseña" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Registrarse
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

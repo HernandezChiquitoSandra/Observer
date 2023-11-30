@@ -1,0 +1,60 @@
+<div class="conteiner mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{titulo | uppercase}}</span>
+                    <form class="mt-3" [formGroup]="libroForm" (ngSubmit)="sendFiles()">
+                        <div class="mb-3">
+                            <input formControlName="titulo" type="text" class="form-control form-control-lg" placeholder="Titulo">
+                            <div class="text-danger" *ngIf="libroForm.get('titulo')?.hasError('required') && libroForm.get('titulo')?.touched">
+                                <span>Este campo es <strong>obligatorio</strong></span> 
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="editorial" type="text" class="form-control form-control-lg" placeholder="Editorial">
+                            <div class="text-danger" *ngIf="libroForm.get('editorial')?.hasError('required') && libroForm.get('editorial')?.touched">
+                                <span>Este campo es <strong>obligatorio</strong></span> 
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="fechpubl" type="number" class="form-control form-control-lg" placeholder="Fecha de publicación">
+                            <div class="text-danger" *ngIf="libroForm.get('fechpubl')?.hasError('required') && libroForm.get('fechpubl')?.touched">
+                                <span>Este campo es <strong>obligatorio</strong></span> 
+                            </div>
+                        </div>                        
+                        <div class="mb-3">
+                            <input formControlName="gen" type="text" class="form-control form-control-lg" placeholder="Género">
+                            <div class="text-danger" *ngIf="libroForm.get('gen')?.hasError('required') && libroForm.get('gen')?.touched">
+                                <span>Este campo es <strong>obligatorio</strong></span> 
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="sinop" type="text" class="form-control form-control-lg" placeholder="Sinópsis">
+                            <div class="text-danger" *ngIf="libroForm.get('sinop')?.hasError('required') && libroForm.get('sinop')?.touched">
+                                <span>Este campo es <strong>obligatorio</strong></span> 
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input formControlName="numpag" type="number" class="form-control form-control-lg" placeholder="Número de páginas">
+                            <div class="text-danger" *ngIf="libroForm.get('numpag')?.hasError('required') && libroForm.get('numpag')?.touched">
+                                <span>Este campo es <strong>obligatorio</strong></span> 
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Foto del aspirante</label>
+                            <input class="form-control" type="file" id="foto" (change)="getFile($event, 'foto')">
+                          </div>
+                        <div class="text-danger" *ngIf="libroForm.get('chronologicalDisease')?.hasError('required') && libroForm.get('chronologicalDisease')?.touched">
+                            <span>Este campo es <strong>obligatorio</strong></span> 
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                            <button type="submit" class="btn btn-primary btn-lg float-end">GUARDAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
